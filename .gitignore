@@ -1,0 +1,12 @@
+bin/
+.vs/
+packages/
+
+obj/
+
+*.user
+*.dll
+*.exe
+*.pdb
+
+
