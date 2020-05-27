@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace ApplicationMVVM.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public List<TablePatterns> TablePatterns { get; set; } = new List<TablePatterns>();
+        public ObservableCollection<TablePatterns> TablePatterns { get; set; } = new ObservableCollection<TablePatterns>();
 
         private string name;
         public string Name
@@ -65,6 +66,19 @@ namespace ApplicationMVVM.ViewModels
             });
 
         }
+
+        private RelayCommand btnOk;
+        public RelayCommand BtnOk => btnOk ??
+                    (btnOk = new RelayCommand(obj =>
+                    {
+                        TablePatterns.Add(new TablePatterns()
+                        {
+                            Name = Name,
+                            Description = Description,
+                            Author = Author,
+                            Released = Released
+                        });
+                    }, (obj) => Released > 1940 && !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Description)));
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "") => 

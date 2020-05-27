@@ -25,7 +25,7 @@
                 <TextBox Margin="8 5" Text="{Binding Author}"/>
                 <Label  Margin="8 0" Content="Released"/>
                 <TextBox Margin="8 5" Text="{Binding Released}"/>
-                <Button Content="Ok!" Margin="10 20"/>
+                <Button Content="Ok!" Command="{Binding BtnOk}" Margin="10 20"/>
             </StackPanel>
         </StackPanel>
     </Grid>
