@@ -13,7 +13,8 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="550">
-                <DataGrid ItemsSource="{Binding TablePattern}"></DataGrid>
+                <DataGrid ItemsSource="{Binding TablePatterns}" IsReadOnly="True">
+                </DataGrid>
             </StackPanel>
             <StackPanel  Background="AliceBlue" Width="240">
                 <Label  Margin="8 0" Content="Name"/>

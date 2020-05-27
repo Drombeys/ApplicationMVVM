@@ -1,10 +1,15 @@
-﻿using System.ComponentModel;
+﻿using ApplicationMVVM.Models;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ApplicationMVVM.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        public List<TablePatterns> TablePatterns { get; set; } = new List<TablePatterns>();
+
         private string name;
         public string Name
         {
@@ -51,6 +56,13 @@ namespace ApplicationMVVM.ViewModels
 
         public MainViewModel()
         {
+            TablePatterns.Add(new TablePatterns()
+            {
+                Name = "MVP",
+                Description = "asdasd",
+                Author = "asd",
+                Released = 2015
+            });
 
         }
 
